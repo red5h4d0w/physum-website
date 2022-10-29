@@ -11,36 +11,36 @@
         class="carousel slide"
         data-bs-ride="carousel"
     >
-        <ol class="carousel-indicators">
+        <div class="carousel-indicators">
             {#each poste.responsables as responsable, j}
                 {#if j == 0}
-                    <li
-                        data-target="#carouselExampleIndicators{i}"
-                        data-slide-to="0"
+                    <button
+                        data-bs-target="#carouselExampleIndicators{i}"
+                        data-bs-slide-to="0"
                         class="active"
                     />
                 {:else}
-                    <li
-                        data-target="#carouselExampleIndicators{i}"
-                        data-slide-to={j}
+                    <button
+                        data-bs-target="#carouselExampleIndicators{i}"
+                        data-bs-slide-to={j}
                     />
                 {/if}
             {/each}
-            {#each poste.adjoints as adjoint, j}
-                {#if poste.responsables.length == 0}
-                    <li
-                        data-target="#carouselExampleIndicators{i}"
-                        data-slide-to="0"
+            {#each poste.adjoints || [] as adjoint, j}
+                {#if poste.responsables.length == 0 && j==0}
+                    <button
+                        data-bs-target="#carouselExampleIndicators{i}"
+                        data-bs-slide-to="0"
                         class="active"
                     />
                 {:else}
-                    <li
-                        data-target="#carouselExampleIndicators{i}"
-                        data-slide-to={j + poste.responsables.length}
+                    <button
+                        data-bs-target="#carouselExampleIndicators{i}"
+                        data-bs-slide-to={j + poste.responsables.length}
                     />
                 {/if}
             {/each}
-        </ol>
+        </div>
         <div class="carousel-inner">
             {#each poste.responsables as responsable, j}
                 {#if j == 0}
@@ -77,22 +77,38 @@
                     </div>
                 {/if}
             {/each}
-            {#each poste.adjoints as adjoint}
-                {#if poste.responsables.length == 0}
+            {#each poste.adjoints || [] as adjoint, j}
+                {#if poste.responsables.length == 0 && j==0}
                     <div class="carousel-item active">
-                        <img
-                            class="card-img-top img-thumbnail ca-img-elu"
-                            src="/images/ca/{adjoint.image}"
-                            alt={adjoint.nom}
-                        />
+                        {#if adjoint.image}
+                            <img
+                                class="card-img-top img-thumbnail ca-img-elu"
+                                src="/images/ca/{adjoint.image}"
+                                alt={adjoint.nom}
+                            />
+                        {:else}
+                            <img
+                                class="card-img-top img-thumbnail ca-img-elu"
+                                src="/images/ca/pas_de_photo.jpg"
+                                alt={adjoint.nom}
+                            />
+                        {/if}
                     </div>
                 {:else}
                     <div class="carousel-item">
-                        <img
-                            class="card-img-top img-thumbnail ca-img-elu"
-                            src="/images/ca/{adjoint.image}"
-                            alt={adjoint.nom}
-                        />
+                        {#if adjoint.image}
+                            <img
+                                class="card-img-top img-thumbnail ca-img-elu"
+                                src="/images/ca/{adjoint.image}"
+                                alt={adjoint.nom}
+                            />
+                        {:else}
+                            <img
+                                class="card-img-top img-thumbnail ca-img-elu"
+                                src="/images/ca/pas_de_photo.jpg"
+                                alt={adjoint.nom}
+                            />
+                        {/if}
                     </div>
                 {/if}
             {/each}
@@ -191,13 +207,5 @@
         align-self: center;
     }
     .card-text {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        z-index: 1000;
-        background-color: white;
-        width: 98%;
-        left: 0px;
-        margin-top: 10px;
     }
 </style>
