@@ -19,21 +19,39 @@
             <span class="navbar-toggler-icon" />
         </button>
         <div class="collapse navbar-collapse" id="monNav">
-            <div class="navbar-nav">
-                <a class="navlink" href="#a_propos">À propos</a>
-                <a class="navlink" href="#ca">CA</a>
-                <a class="navlink" href="#actu_fb">Actualités</a>
-                <a class="navlink" href="#planck">Planck</a>
-                <a class="navlink" href="#evenements">Événements</a>
-                <a class="navlink" href="#comites">Comités</a>
-                <a class="navlink" href="#calendrier">Calendrier</a>
-                <a class="navlink" href="#liens">Liens</a>
-
-                <a
-                    href="https://drive.google.com/drive/folders/0B7jQu73oYlfzbURveTR5TDN5N28?usp=sharing"
-                    target="_blanck">Documents</a
-                >
-            </div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#a_propos">À propos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#ca">CA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#actu_fb">Actualités</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#planck">Planck</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#evenements">Événements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#comites">Comités</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#calendrier">Calendrier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#liens">Liens</a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="https://drive.google.com/drive/folders/0B7jQu73oYlfzbURveTR5TDN5N28?usp=sharing"
+                        target="_blanck">Documents</a
+                    >
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

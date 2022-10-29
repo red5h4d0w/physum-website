@@ -9,7 +9,7 @@
     <div
         id="carouselExampleIndicators{i}"
         class="carousel slide"
-        data-ride="carousel"
+        data-bs-ride="carousel"
     >
         <ol class="carousel-indicators">
             {#each poste.responsables as responsable, j}
@@ -97,42 +97,29 @@
                 {/if}
             {/each}
         </div>
-        <a
+        <button
             class="carousel-control-prev"
-            href="#carouselExampleIndicators{i}"
-            role="button"
-            data-slide="prev"
+            data-bs-slide="prev"
+            data-bs-target="#carouselExampleIndicators{i}"
         >
-            <span class="carousel-control-prev-icon" aria-hidden="true" />
-            <span class="sr-only">Précédent</span>
-        </a>
-        <a
+            <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+            <span class="visually-hidden">Précédent</span>
+    </button>
+        <button
             class="carousel-control-next"
-            href="#carouselExampleIndicators{i}"
-            role="button"
-            data-slide="next"
+            data-bs-slide="next"
+            data-bs-target="#carouselExampleIndicators{i}"
         >
-            <span class="carousel-control-next-icon" aria-hidden="true" />
-            <span class="sr-only">Suivant</span>
-        </a>
+            <span class="carousel-control-next-icon" aria-hidden="true" ></span>
+            <span class="visually-hidden">Suivant</span>
+    </button>
     </div>
 
     <div class="card-body">
-        <div class="card-title">{poste.role}</div>
+        <div class="card-title">{@html poste.role}</div>
     </div>
-    <div class="card-footer text-center">
-        <button
-            class="btn btn-primary"
-            data-target="#caFooter{i}"
-            data-bs-toggle="collapse"
-            aria-expanded="false"
-            aria-controls="caFooter{i}"
-        >
-            Informations
-        </button>
-    </div>
-
-    <div id="caFooter{i}" class="collapse">
+    
+    <div id="descPoste{i}" class="collapse">
         <div class="card-text">
             {#each poste.responsables as responsable}
                 <h3>{responsable.nom}</h3>
@@ -177,6 +164,20 @@
             <p>{poste.description}</p>
         </div>
     </div>
+
+    <div class="card-footer text-center">
+        <button
+            class="btn btn-primary"
+            data-bs-target="#descPoste{i}"
+            data-bs-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="descPoste{i}"
+        >
+            Informations
+        </button>
+    </div>
+
+    
 </div>
 
 <style>

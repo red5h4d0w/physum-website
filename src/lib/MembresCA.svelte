@@ -13,19 +13,3 @@
         {/each}
     </div>
 </div>
-
-
-<style>
-    #ca {
-        background: rgba(0, 0, 0, 0.5);
-        padding: 2%;
-    }
-
-    #ca h1 {
-        color: #ddd;
-    }
-
-    #ca hr {
-        border-color: #bbb;
-    }
-</style>
